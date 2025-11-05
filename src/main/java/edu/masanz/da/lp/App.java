@@ -12,7 +12,12 @@ public class App {
      * Constructor de la clase App.
      */
     public App() {
-        // TODO 11: instancia el GestorLigas e inicializa las ligas utilizando la clase Init
+        // TODO 11: instancia el GestorLigas HECHO DUDAS
+        //  e inicializa las ligas utilizando la clase Init
+        gestorLigas = new GestorLigas();
+        Init.crearLigas(gestorLigas);
+
+
 
 
     }
