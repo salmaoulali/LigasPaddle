@@ -9,6 +9,7 @@ public class Main {
         // TODO 01: instancia la clase App y llama al método run. HECHO
         App app = new App();
         app.run();
+        app.ejectarOpcion();
 
 
     }

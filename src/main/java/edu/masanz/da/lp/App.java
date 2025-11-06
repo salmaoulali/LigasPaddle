@@ -26,7 +26,19 @@ public class App {
      * Método principal para ejecutar la aplicación.
      */
     public void run() {
-        // TODO 12: en un bucle muestra el menú, lee la opción y ejecuta la opción hasta que se elija salir.
+        // TODO 12: en un bucle muestra el menú,
+        //  lee la opción y
+        //  ejecuta la opción hasta que se elija salir. HECHO
+
+        while (true) {
+            Gui.mostrarMenu();
+            int n = Gui.leerNumero("Dame un número");
+            ejecutarOpcion(n);
+            if (n ==  0) {
+                break;
+            }
+        }
+
 
 
 
@@ -44,6 +56,23 @@ public class App {
     private void ejecutarOpcion(int numOpc) {
         // TODO 13: implementa la ejecución de las opciones del menú utilizando un switch.
         // Llama a los métodos correspondientes para cada opción.
+        switch (numOpc) {
+            case 1:
+                listarEquiposLigas();
+
+
+            case 2:
+                mostrarTablaResultadosLiga();
+                break;
+
+            case 3:
+                listarCampeonesLigas();
+                break;
+
+            case 4:
+                anotarMarcadoresLiga();
+                break;
+        }
 
 
 
