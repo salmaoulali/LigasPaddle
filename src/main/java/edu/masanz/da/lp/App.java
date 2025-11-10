@@ -54,7 +54,7 @@ public class App {
      * @param numOpc Número de opción seleccionada.
      */
     private void ejecutarOpcion(int numOpc) {
-        // TODO 13: implementa la ejecución de las opciones del menú utilizando un switch.
+        // TODO 13: implementa la ejecución de las opciones del menú utilizando un switch. HECHO
         // Llama a los métodos correspondientes para cada opción.
         switch (numOpc) {
             case 1:
@@ -99,31 +99,31 @@ public class App {
      * Lista los equipos de las ligas disponibles.
      */
     private void listarEquiposLigas() {
-        // TODO 14: muestra la lista de ligas, lee el número de liga y muestra la lista de equipos de la liga seleccionada.
-
-
-
-
-
+        // TODO 14: muestra la lista de ligas, lee el número de liga y muestra la lista de equipos de la liga seleccionada. HECHO
+        Gui.mostrarTexto("Ligas disponibles: ");
+        Gui.mostrarTexto(gestorLigas.getListaLigas());
+        int num = Gui.leerNumero("Elige un numero de liga");
+        Gui.mostrarTexto("Equipos de la liga: ");
+        gestorLigas.getListaEquipos(num);
     }
 
     /**
      * Lista los campeones de las ligas.
      */
     private void listarCampeonesLigas() {
-        // TODO 15: muestra el listado de campeones de todas las ligas.
-
-
+        // TODO 15: muestra el listado de campeones de todas las ligas. HECHO
+        String txt = gestorLigas.getListadoCampeonesLigas();
+        Gui.mostrarTexto(txt);
     }
 
     /**
      * Muestra la tabla de resultados de una liga seleccionada.
      */
     private void mostrarTablaResultadosLiga() {
-        // TODO 16: muestra la lista de ligas, lee el número de liga y muestra la tabla de resultados de la liga seleccionada.
-
-
-
+        // TODO 16: muestra la lista de ligas, lee el número de liga y muestra la tabla de resultados de la liga seleccionada. HECHO
+        Gui.mostrarTexto(gestorLigas.getListaLigas());
+        int numLiga = Gui.leerNumero("Elige una liga: ");
+        Gui.mostrarTexto(gestorLigas.getTablaResultadosLiga(numLiga));
     }
 
     /**
@@ -131,9 +131,9 @@ public class App {
      * @param numLiga Número de la liga.
      */
     private void mostrarTablaResultadosLiga(int numLiga) {
-        // TODO 17: muestra la tabla de resultados de la liga indicada.
-
-
+        // TODO 17: muestra la tabla de resultados de la liga indicada. HECHO
+        Gui.mostrarTexto("Resultados actuales de la liga " + gestorLigas.getNombreLiga(numLiga) + " : ");
+        Gui.mostrarTexto(gestorLigas.getTablaResultadosLiga(numLiga));
 
     }
 
@@ -147,23 +147,21 @@ public class App {
         // Muestra la tabla de resultados antes y después de anotar los marcadores.
         // Permite repetir el proceso hasta que el usuario decida salir.
 
+        Gui.mostrarTexto(gestorLigas.getListaLigas());
+        int numLiga = Gui.leerNumero("Elige una liga de 1 a 4: ");
+        Gui.mostrarTexto(gestorLigas.getListaEquipos(numLiga));
+        while (true) {
+            mostrarTablaResultadosLiga(numLiga);
+            Gui.mostrarTexto("Selecciona el número de los dos equipos del partido:");
+            int e1 = Gui.leerNumero("Número equipo fila    (1-4): ");
+            int e2 = Gui.leerNumero("Número equipo columna (1-4): ");
+            for (int i = 1; i <= 3; i++) {
+                int v1 = Gui.leerNumero("Marcador" + i + " equipo: " + gestorLigas.getEquipo(numLiga, e1));
+                int v2 = Gui.leerNumero("Marcador" + i + " equipo: " + gestorLigas.getEquipo(numLiga, e2));
+                gestorLigas.setMarcadorPartido(numLiga, e1, e2, i, v1, v2);
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
     }
 
     /**

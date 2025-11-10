@@ -71,7 +71,7 @@ public class Liga {
      */
     public String getMarcadorPartido(int k, int i, int j) {
         // TODO 34: Devuelve el marcador k del partido entre el equipo i y j
-        return "0-0";
+        return getMarcadorPartido(k,i,j);
     }
 
     /**
